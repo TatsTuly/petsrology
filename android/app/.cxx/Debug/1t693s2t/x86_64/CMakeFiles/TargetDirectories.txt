@@ -1,0 +1,2 @@
+C:/Users/User/petsrology/android/app/.cxx/Debug/1t693s2t/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/User/petsrology/android/app/.cxx/Debug/1t693s2t/x86_64/CMakeFiles/rebuild_cache.dir

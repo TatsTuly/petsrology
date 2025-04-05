@@ -1,0 +1,2 @@
+C:/Users/User/petsrology/android/app/.cxx/Debug/1t693s2t/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/User/petsrology/android/app/.cxx/Debug/1t693s2t/armeabi-v7a/CMakeFiles/rebuild_cache.dir
