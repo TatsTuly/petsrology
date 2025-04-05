@@ -62,8 +62,10 @@ flutter:
      - assets/images/start01.png
      - assets/images/start2.png
      - assets/images/start3.png
-     - assets/images/start4.png
      - assets/images/start5Vet.png
+     - assets/images/logo.png
+     - assets/login/medialogo.png
+    
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

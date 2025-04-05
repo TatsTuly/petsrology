@@ -20,21 +20,6 @@ class _LoginScreenState extends State<LoginScreen> {
              colors: [const Color.fromARGB(255, 255, 163, 246),
              const Color.fromARGB(255, 91, 213, 247)])
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text.rich(TextSpan(
-              text: "Welcome\n",style: TextStyle(fontFamily: "DMSans",fontSize: 50,fontWeight: FontWeight.bold,
-              color: Colors.white),
-              children: [
-                TextSpan(text: "to  "),
-                TextSpan(
-                  text: "Petsrology",style: TextStyle(color: const Color.fromARGB(255, 51, 2, 110),fontFamily: "DMSans")
-                )
-              ])),
-              
-          ],
-        ),
       )
     );
   }

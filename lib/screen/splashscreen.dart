@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     
     super.initState();
-    Future.delayed(Duration(seconds: 10),() {
+    Future.delayed(Duration(seconds: 5),() {
    // ignore: use_build_context_synchronously
    Navigator.pushNamed(context, '/onboarding');
     });

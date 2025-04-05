@@ -35,7 +35,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         curve: Curves.easeIn,
       );
     } else {
-      Navigator.pushNamed(context, '/loginscreen');
+      Navigator.pushNamed(context, '/welcome');
     }
   }
 
@@ -89,8 +89,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       style: TextButton.styleFrom(
                         foregroundColor: Colors.white,
                         backgroundColor: _currentPage != _totalPages - 1
-                            ? const Color.fromARGB(255, 76, 3, 144)
-                            : const Color.fromARGB(255, 76, 3, 144),
+                            ? const Color.fromARGB(255, 163, 1, 166)
+                            : const Color.fromARGB(255, 163, 1, 166),
                         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
