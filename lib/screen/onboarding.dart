@@ -20,7 +20,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         height: 12,
         width: _currentPage == index ? 24 : 12,
         decoration: BoxDecoration(
-          color: _currentPage == index ? Colors.deepPurple : Colors.grey,
+          color: _currentPage == index ? const Color.fromARGB(255, 192, 1, 186) : Colors.grey,
           borderRadius: BorderRadius.circular(6),
         ),
       );
@@ -89,8 +89,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       style: TextButton.styleFrom(
                         foregroundColor: Colors.white,
                         backgroundColor: _currentPage != _totalPages - 1
-                            ? const Color.fromARGB(255, 62, 1, 119)
-                            : const Color.fromARGB(255, 16, 2, 167),
+                            ? const Color.fromARGB(255, 76, 3, 144)
+                            : const Color.fromARGB(255, 76, 3, 144),
                         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
