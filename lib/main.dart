@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petsrology/screen/home.dart';
 import 'package:petsrology/screen/loginscreen.dart';
 import 'package:petsrology/screen/onboarding.dart';
 import 'package:petsrology/screen/signup.dart';
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
         '/onboarding':(context)=>OnboardingScreen(),
         '/loginscreen':(context)=>LoginScreen(),
         '/welcome':(context)=>WelcomeScreen(),
-        '/signup':(context)=>SignUp()
+        '/signup':(context)=>SignUp(),
+        '/home':(context)=>HomeScreen(),
       },
       initialRoute: '/',
     );
