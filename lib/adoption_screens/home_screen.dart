@@ -11,155 +11,180 @@ class PetsHomeScreen extends StatefulWidget {
 
 class _PetsHomeScreenState extends State<PetsHomeScreen> {
   int selectedIndex = 0;
-@override
-Widget build(BuildContext context) {
-  List<List<PetsModel>> categories = [cats, dogs, birds, other];
-  return Scaffold(
-    backgroundColor: Colors.white,
-    body: SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Profile Section
-          const Padding(
-            padding: EdgeInsets.only(left: 22, top: 10),
-            child: Row(
-              children: [
-                CircleAvatar(
-                  radius: 25,
-                  backgroundImage: AssetImage("images/profile.png"),
-                ),
-                SizedBox(width: 5),
-                Text(
-                  "Hi, Abin",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
-                )
-              ],
-            ),
-          ),
-          const SizedBox(height: 10),
-          // Title Section
-          const Padding(
-            padding: EdgeInsets.only(left: 22),
-            child: Text.rich(
-              TextSpan(
-                text: "Adopt\n",
-                style: TextStyle(
-                  height: 1.1,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
+
+  final List<Color> themeColors = [
+    Color(0xFFF9C8D9), // light pink
+    Color(0xFFDCC6F0), // light purple
+    Color(0xFFB1D1FF), // sky blue
+    Color(0xFFAF9EC4), // purple
+    Color(0xFF5A3E8D), // dark purple
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    List<List<PetsModel>> categories = [cats, dogs, birds, other];
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Padding(
+              padding: EdgeInsets.only(left: 22, top: 10),
+              child: Row(
                 children: [
-                  TextSpan(
-                    text: "your pet's here!",
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.normal,
-                    ),
+                  CircleAvatar(
+                    radius: 25,
+                    backgroundImage: AssetImage("images/profile.png"),
+                  ),
+                  SizedBox(width: 5),
+                  Text(
+                    "Hi, Tanjid",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                   )
                 ],
               ),
             ),
-          ),
-          const SizedBox(height: 10),
-          // Category Selection
-          categorySelection(),
-          // Pet List
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 22),
-              child: ListView.builder(
-                itemCount: categories[selectedIndex].length,
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => DetailScreen(
-                            pets: categories[selectedIndex][index],
-                          ),
-                        ),
-                      );
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 20, right: 15),
-                      child: Row(
-                        children: [
-                          // Pet Image Section
-                          Container(
-                            width: 100, // Adjusted width
-                            height: 100, // Adjusted height
-                            decoration: BoxDecoration(
-                              color: categories[selectedIndex][index].color,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Center(
-                              child: Hero(
-                                tag: categories[selectedIndex][index].image,
-                                child: Image.asset(
-                                  categories[selectedIndex][index].image,
-                                  fit: BoxFit.cover,
-                                  width: 80, // Adjusted width
-                                  height: 80, // Adjusted height
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          // Pet Details Section
-                          Expanded(
-                            child: Container(
-                              padding: const EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                color: categories[selectedIndex][index]
-                                    .color
-                                    .withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    categories[selectedIndex][index].name,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 5),
-                                  Text(
-                                    categories[selectedIndex][index].breed,
-                                    style: const TextStyle(
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 5),
-                                  Text(
-                                    "${categories[selectedIndex][index].sex}, ${categories[selectedIndex][index].age} year old",
-                                    style: const TextStyle(
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
+            const SizedBox(height: 10),
+            const Padding(
+              padding: EdgeInsets.only(left: 22),
+              child: Text.rich(
+                TextSpan(
+                  text: "Adopt\n",
+                  style: TextStyle(
+                    height: 1.1,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: "your pet's here!",
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.normal,
                       ),
-                    ),
-                  );
-                },
+                    )
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+            const SizedBox(height: 10),
+            categorySelection(),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 22, right: 10),
+                child: ListView.builder(
+                  itemCount: categories[selectedIndex].length,
+                  itemBuilder: (context, index) {
+                    final pet = categories[selectedIndex][index];
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailScreen(pets: pet),
+                          ),
+                        );
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: themeColors[1],
+                                blurRadius: 10,
+                                spreadRadius: 2,
+                                offset: Offset(0, 5),
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 100,
+                                height: 100,
+                                margin: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  color: pet.color,
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Center(
+                                  child: Hero(
+                                    tag: pet.image,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(20),
+                                      child: Image.asset(
+                                        pet.image,
+                                        fit: BoxFit.contain,
+                                        width: 80,
+                                        height: 80,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 5),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        pet.name,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18,
+                                          color: themeColors[4],
+                                        ),
+                                      ),
+                                      const SizedBox(height: 5),
+                                      Text(
+                                        pet.breed,
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.grey.shade700,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 5),
+                                      Text(
+                                        "${pet.sex}, ${pet.age} year old",
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                          color: Colors.grey.shade600,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
-    ),
-  );
-}
+    );
+  }
 
-  SizedBox categorySelection() {
+  Widget categorySelection() {
+    final List<Color> buttonColors = [
+      const Color(0xFFF9C8D9), // light pink
+      const Color(0xFFDCC6F0), // light purple
+      const Color(0xFFB1D1FF), // sky blue
+      const Color(0xFFAF9EC4), // purple
+    ];
+
     return SizedBox(
       height: 100,
       child: ListView.builder(
@@ -167,6 +192,7 @@ Widget build(BuildContext context) {
         itemCount: categoryList.length,
         physics: const BouncingScrollPhysics(),
         itemBuilder: ((context, index) {
+          final isSelected = selectedIndex == index;
           return GestureDetector(
             onTap: () {
               setState(() {
@@ -181,31 +207,28 @@ Widget build(BuildContext context) {
                     height: 80,
                     width: 75,
                     decoration: BoxDecoration(
-                      color: selectedIndex == index
-                          ? const Color(0xffFF9166)
-                          : const Color(0xffFF9166).withOpacity(0.1),
+                      color: buttonColors[index % buttonColors.length],
                       borderRadius: BorderRadius.circular(15),
-                      boxShadow: [
-                        BoxShadow(
-                          color: selectedIndex == index
-                              ? const Color(0xffFF9166).withOpacity(0.5)
-                              : Colors.transparent,
-                          blurRadius: 12,
-                          spreadRadius: 1,
-                        ),
-                      ],
+                      border: isSelected
+                          ? Border.all(
+                              color: const Color(0xFF5A3E8D),
+                              width: 2,
+                            )
+                          : null,
                     ),
                     child: Center(
                       child: Text(
                         categoryList[index],
+                        textAlign: TextAlign.center,
                         style: TextStyle(
-                            color: selectedIndex == index
-                                ? Colors.white
-                                : Colors.amber[900],
-                            fontWeight: selectedIndex == index
-                                ? FontWeight.bold
-                                : FontWeight.normal,
-                            fontSize: 18),
+                          color: isSelected
+                              ? const Color(0xFF5A3E8D)
+                              : Colors.black87,
+                          fontWeight: isSelected
+                              ? FontWeight.bold
+                              : FontWeight.normal,
+                          fontSize: 16,
+                        ),
                       ),
                     ),
                   )
