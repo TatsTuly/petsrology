@@ -93,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
-                              Navigator.pushNamed(context, '/home');
+                              Navigator.pushNamed(context, '/home_screen');
                             }
                           },
                           style: ElevatedButton.styleFrom(
