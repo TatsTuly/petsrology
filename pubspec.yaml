@@ -65,7 +65,6 @@ flutter:
      - assets/images/start5Vet.png
      - assets/images/logo.png
      - assets/images/start4.png
-     - assets/login/medialogo.png
      - assets/adoption/dog/dog3.png
      - assets/adoption/dog/dog4.png
      - assets/adoption/dog/dog5.png
@@ -77,7 +76,8 @@ flutter:
      - assets/adoption/cat/cat2.png
      - assets/adoption/cat/cat1.png
      - assets/adoption/cat/cat3.png
-
+     - assets/logo/adoptlogo.png
+     - assets/logo/medialogo.png
     
 
 

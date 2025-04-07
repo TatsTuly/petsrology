@@ -29,8 +29,8 @@ List<PetsModel> cats = [
     image: 'assets/adoption/cat/cat1.png',
     age: "1",
     origin: "US",
-    sex: "Femail ",
-    color: const Color.fromARGB(255, 233, 132, 237),
+    sex: "Female ",
+    color: const Color.fromARGB(255, 241, 160, 244),
     description:
         "Pets bring joy, companionship, and love into our lives. Whether furry, feathered, or scaled, they offer comfort and loyalty. From playful antics to gentle purrs, they teach us patience and responsibility.",
   ),
@@ -40,8 +40,8 @@ List<PetsModel> cats = [
     image: 'assets/adoption/cat/cat2.png',
     age: "2",
     origin: "US",
-    sex: "Femail ",
-    color: const Color.fromARGB(255, 53, 174, 255),
+    sex: "Female",
+    color: const Color.fromARGB(255, 149, 210, 251),
     description:
         "Pets bring joy, companionship, and love into our lives. Whether furry, feathered, or scaled, they offer comfort and loyalty. From playful antics to gentle purrs, they teach us patience and responsibility.",
   ),
@@ -51,8 +51,8 @@ List<PetsModel> cats = [
     image: 'assets/adoption/cat/cat3.png',
     age: "3 ",
     origin: "Iran",
-    sex: "Femail ",
-    color: const Color.fromARGB(255, 134, 69, 255),
+    sex: "Female ",
+    color: const Color.fromARGB(255, 172, 127, 255),
     description:
         "Pets bring joy, companionship, and love into our lives. Whether furry, feathered, or scaled, they offer comfort and loyalty. From playful antics to gentle purrs, they teach us patience and responsibility.",
   ),
@@ -64,8 +64,8 @@ List<PetsModel> dogs = [
     image: 'assets/adoption/dog/dog3.png',
     age: " 1",
     origin: "UK",
-    sex: "Dog",
-    color: const Color.fromARGB(255, 108, 253, 255),
+    sex: "Male",
+    color: const Color.fromARGB(255, 153, 253, 255),
     description:
         "Pets bring joy, companionship, and love into our lives. Whether furry, feathered, or scaled, they offer comfort and loyalty. From playful antics to gentle purrs, they teach us patience and responsibility.",
   ),
@@ -75,8 +75,8 @@ List<PetsModel> dogs = [
     image: 'assets/adoption/dog/dog4.png',
     age: " 2",
     origin: "Italy",
-    sex: "Dog",
-    color: const Color.fromARGB(255, 205, 0, 164),
+    sex: "Female",
+    color: const Color.fromARGB(255, 255, 117, 227),
     description:
         "Pets bring joy, companionship, and love into our lives. Whether furry, feathered, or scaled, they offer comfort and loyalty. From playful antics to gentle purrs, they teach us patience and responsibility.",
   ),
@@ -86,8 +86,8 @@ List<PetsModel> dogs = [
     image: 'assets/adoption/dog/dog5.png',
     age: " 2.5",
     origin: "India",
-    sex: "Dog",
-    color: const Color.fromARGB(255, 113, 98, 247),
+    sex: "Female",
+    color: const Color.fromARGB(255, 114, 128, 254),
     description:
         "Pets bring joy, companionship, and love into our lives. Whether furry, feathered, or scaled, they offer comfort and loyalty. From playful antics to gentle purrs, they teach us patience and responsibility.",
   ),
@@ -97,8 +97,8 @@ List<PetsModel> dogs = [
     image: 'assets/adoption/dog/dog6.png',
     age: "2.5",
     origin: "India",
-    sex: "Dog",
-    color: const Color.fromARGB(255, 47, 216, 243),
+    sex: "Male",
+    color: const Color.fromARGB(255, 136, 239, 255),
     description:
         "Pets bring joy, companionship, and love into our lives. Whether furry, feathered, or scaled, they offer comfort and loyalty. From playful antics to gentle purrs, they teach us patience and responsibility.",
   ),
@@ -108,8 +108,8 @@ List<PetsModel> dogs = [
     image: 'assets/adoption/dog/dog7.png',
     age: " 2.5",
     origin: "India",
-    sex: "Dog",
-    color: const Color.fromARGB(255, 216, 68, 162),
+    sex: "Female",
+    color: const Color.fromARGB(255, 255, 120, 205),
     description:
         "Pets bring joy, companionship, and love into our lives. Whether furry, feathered, or scaled, they offer comfort and loyalty. From playful antics to gentle purrs, they teach us patience and responsibility.",
   ),
@@ -121,7 +121,7 @@ List<PetsModel> birds = [
     image: 'assets/adoption/bird/bird1.png',
     age: " 1",
     origin: "Nepal",
-    sex: "bird",
+    sex: "Male",
     color: const Color.fromARGB(255, 248, 171, 193),
     description:
         "Pets bring joy, companionship, and love into our lives. Whether furry, feathered, or scaled, they offer comfort and loyalty. From playful antics to gentle purrs, they teach us patience and responsibility.",
@@ -132,7 +132,7 @@ List<PetsModel> birds = [
     image: 'assets/adoption/bird/bird2.png',
     age: "1",
     origin: "Fra",
-    sex: "Bird",
+    sex: "Male",
     color: const Color.fromARGB(255, 107, 141, 226),
     description:
         "Pets bring joy, companionship, and love into our lives. Whether furry, feathered, or scaled, they offer comfort and loyalty. From playful antics to gentle purrs, they teach us patience and responsibility.",
@@ -143,8 +143,8 @@ List<PetsModel> birds = [
     image: 'assets/adoption/bird/bird3.png',
     age: " 1",
     origin: " UK",
-    sex: "Bird",
-    color: const Color.fromARGB(255, 180, 78, 243),
+    sex: "Female",
+    color: const Color.fromARGB(255, 213, 145, 255),
     description:
         "Pets bring joy, companionship, and love into our lives. Whether furry, feathered, or scaled, they offer comfort and loyalty. From playful antics to gentle purrs, they teach us patience and responsibility.",
   ),
@@ -158,7 +158,7 @@ List<PetsModel> other = [
       origin: "",
       sex: "",
       description: "",
-      color: const Color(0xffC1B7B1)),
+      color: const Color.fromARGB(255, 224, 162, 255)),
   PetsModel(
       name: '',
       breed: '',
@@ -167,7 +167,7 @@ List<PetsModel> other = [
       origin: "",
       sex: "",
       description: "",
-      color: const Color(0xffC1B7B1)),
+      color: const Color.fromARGB(255, 124, 207, 255)),
 ];
 
 List<String> categoryList = [

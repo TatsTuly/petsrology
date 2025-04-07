@@ -24,8 +24,8 @@ class _SignUpState extends State<SignUp> {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomRight,
                 colors: [
-                  Color.fromARGB(255, 248, 78, 177),
-                  Color.fromARGB(255, 30, 199, 229),
+                  Color.fromARGB(255, 0, 20, 168),
+                  Color.fromARGB(255, 4, 197, 222),
                 ],
               ),
             ),
@@ -38,6 +38,7 @@ class _SignUpState extends State<SignUp> {
               "Hello New PetLover\nSign Up for free!",
               style: TextStyle(
                 fontSize: 28,
+                fontFamily: "Playfair",
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
@@ -46,12 +47,12 @@ class _SignUpState extends State<SignUp> {
 
           // Form Container
           Padding(
-            padding: const EdgeInsets.only(top: 180),
+            padding: const EdgeInsets.only(top: 180,left: 10,right: 10),
             child: Container(
               width: double.infinity,
               height: double.infinity,
               decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 240, 240, 240),
+                color: Color.fromARGB(255, 191, 253, 255),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40),
                   topRight: Radius.circular(40),
@@ -83,7 +84,7 @@ class _SignUpState extends State<SignUp> {
                             }
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color.fromARGB(255, 188, 10, 146),
+                            backgroundColor: const Color.fromARGB(255, 8, 15, 239),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
                               side: const BorderSide(color: Colors.white),
@@ -93,6 +94,7 @@ class _SignUpState extends State<SignUp> {
                             "Sign Up",
                             style: TextStyle(
                               fontSize: 18,
+                              fontFamily: "Playfair",
                               fontWeight: FontWeight.bold,
                               color: Color(0xFFF5F5F6),
                             ),

@@ -8,7 +8,7 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color.fromARGB(255, 238, 232, 236),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(
@@ -38,7 +38,7 @@ class DetailScreen extends StatelessWidget {
                               child: Container(
                                 padding: const EdgeInsets.all(8),
                                 decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.9),
+                                  color: Colors.white,
                                   shape: BoxShape.circle,
                                 ),
                                 child: const Icon(Icons.arrow_back_ios, color: Colors.black),
@@ -92,6 +92,7 @@ class DetailScreen extends StatelessWidget {
                               style: const TextStyle(
                                 fontSize: 32,
                                 fontWeight: FontWeight.bold,
+                                fontFamily: "Playfair",
                               ),
                             ),
                             const SizedBox(height: 8),
@@ -99,7 +100,8 @@ class DetailScreen extends StatelessWidget {
                               "${pets.breed} • ${pets.sex}, ${pets.age} years old",
                               style: const TextStyle(
                                 fontSize: 16,
-                                color: Colors.grey,
+                                fontFamily: "Playfair",
+                                color: Color.fromARGB(255, 83, 81, 81),
                               ),
                             ),
                             const SizedBox(height: 20),
@@ -107,6 +109,7 @@ class DetailScreen extends StatelessWidget {
                               pets.description,
                               style: const TextStyle(
                                 fontSize: 16,
+                                fontFamily: "Playfair",
                                 color: Colors.black87,
                                 height: 1.5,
                               ),
@@ -173,7 +176,7 @@ class DetailScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
+            color: Colors.grey,
             blurRadius: 8,
             offset: const Offset(0, 5),
           ),
@@ -186,6 +189,7 @@ class DetailScreen extends StatelessWidget {
             value,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
+              fontFamily: "Playfair",
               fontSize: 16,
               color: Colors.black87,
             ),
@@ -195,6 +199,7 @@ class DetailScreen extends StatelessWidget {
             label,
             style: const TextStyle(
               fontSize: 14,
+              fontFamily: "Playfair",
               color: Colors.black45,
             ),
           ),

@@ -18,25 +18,25 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               width: double.infinity,
               height: constraints.maxHeight,
               decoration: const BoxDecoration(
-                color: Color(0xFFFFB6D7)),
+                color: Color.fromARGB(255, 255, 249, 251)),
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 children: [
                   const SizedBox(height: 30),
                   Image.asset(
                     "assets/images/logo.png",
-                    height: 300,
+                    height: 200,
                     width: 300,
                     fit: BoxFit.contain,
                   ),
-                  const SizedBox(height: 10),
+              
                   const Text(
                     "Welcome to Petsrology",
                     style: TextStyle(
                       fontFamily: "Playfair",
                       fontWeight: FontWeight.bold,
                       fontSize: 28,
-                      color: Color.fromARGB(255, 153, 3, 158),
+                      color: Color.fromARGB(255, 164, 2, 118),
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -59,9 +59,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         ),
                       ),
                       child: const Text(
-                        "SIGN IN",
+                        "Sign In",
                         style: TextStyle(
                           fontSize: 18,
+                          fontFamily: "Playfair",
                           fontWeight: FontWeight.bold,
                           color: Color(0xFFF5F5F6),
                         ),
@@ -80,16 +81,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor:
-                            const Color.fromARGB(255, 14, 150, 234),
+                            const Color.fromARGB(255, 0, 10, 196),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                           side: const BorderSide(color: Colors.white),
                         ),
                       ),
                       child: const Text(
-                        "SIGN UP",
+                        "Sign Up",
                         style: TextStyle(
                           fontSize: 18,
+                          fontFamily: "Playfair",
                           fontWeight: FontWeight.bold,
                           color: Color(0xFFF5F5F6),
                         ),
@@ -108,7 +110,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),
                   const SizedBox(height: 16),
                   Image.asset(
-                    "assets/login/medialogo.png"
+                    "assets/logo/medialogo.png"
                   
                   ),
                 ],

@@ -24,8 +24,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomRight,
                 colors: [
-                  Color.fromARGB(255, 248, 78, 177),
-                  Color.fromARGB(255, 30, 199, 229),
+                  Color.fromARGB(255, 139, 0, 81),
+                  Color.fromARGB(255, 98, 1, 133),
                 ],
               ),
             ),
@@ -38,6 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
               "Hello PetLover\nSign In!",
               style: TextStyle(
                 fontSize: 30,
+                fontFamily: "Playfair",
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
@@ -46,12 +47,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
           // Form card container
           Padding(
-            padding: const EdgeInsets.only(top: 180),
+            padding: const EdgeInsets.only(top: 180,left: 10,right: 10),
             child: Container(
               width: double.infinity,
               height: double.infinity,
               decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 240, 240, 240),
+                color: Color.fromARGB(255, 248, 207, 226),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40),
                   topRight: Radius.circular(40),
@@ -78,6 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             "Forgot Password?",
                             style: TextStyle(
                               fontSize: 13,
+
                               fontWeight: FontWeight.bold,
                               color: Colors.black87,
                             ),
@@ -107,6 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             "Log In",
                             style: TextStyle(
                               fontSize: 18,
+                              fontFamily: "Playfair",
                               fontWeight: FontWeight.bold,
                               color: Color(0xFFF5F5F6),
                             ),
@@ -133,6 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
         labelStyle: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.bold,
+          fontFamily: "Playfair",
           color: Color.fromARGB(255, 96, 1, 179),
         ),
         filled: true,

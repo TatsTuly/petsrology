@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 96, 2, 125), // Dark Purple Text
+                color: Color.fromARGB(255, 96, 2, 125), // Dark Purple
               ),
             ),
             const SizedBox(height: 20),
@@ -40,30 +40,30 @@ class HomePage extends StatelessWidget {
                 children: [
                   _buildCategoryButton(
                     context,
-                    icon: 'assets/adoption.png',
+                    icon: 'assets/logo/adoptlogo.png',
                     label: 'Adoption',
-                    gradientColors: [Color(0xFFFFC1E3), Color(0xFFF48FB1)],
+                    backgroundColor: Color.fromARGB(255, 253, 155, 188),
                     onTap: () => Navigator.pushNamed(context, '/home_screen'),
                   ),
                   _buildCategoryButton(
                     context,
                     icon: 'assets/vet.png',
                     label: 'Veterinary',
-                    gradientColors: [Color.fromARGB(255, 66, 223, 255), Color(0xFF7E57C2)],
+                    backgroundColor: Color.fromARGB(255, 150, 185, 251),
                     onTap: () => Navigator.pushNamed(context, '/veterinary'),
                   ),
                   _buildCategoryButton(
                     context,
                     icon: 'assets/care.png',
                     label: 'Pet Care',
-                    gradientColors: [Color.fromARGB(255, 47, 161, 255), Color(0xFF29B6F6)],
+                    backgroundColor: Color.fromARGB(255, 233, 154, 255),
                     onTap: () => Navigator.pushNamed(context, '/petcare'),
                   ),
                   _buildCategoryButton(
                     context,
                     icon: 'assets/essential.png',
                     label: 'Essentials',
-                    gradientColors: [Color.fromARGB(255, 208, 87, 255), Color(0xFF512DA8)],
+                    backgroundColor: Color.fromARGB(255, 152, 226, 255),
                     onTap: () => Navigator.pushNamed(context, '/essentials'),
                   ),
                 ],
@@ -75,11 +75,11 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildCategoryButton(
+ Widget _buildCategoryButton(
     BuildContext context, {
     required String icon,
     required String label,
-    required List<Color> gradientColors,
+    required Color backgroundColor,
     required VoidCallback onTap,
   }) {
     return InkWell(
@@ -87,11 +87,7 @@ class HomePage extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       child: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: gradientColors,
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
+          color: backgroundColor,
           borderRadius: BorderRadius.circular(20),
           boxShadow: const [
             BoxShadow(
@@ -104,14 +100,24 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(icon, height: 50),
-            const SizedBox(height: 10),
-            Text(
-              label,
-              style: const TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
-                color: Colors.white,
+            Image.asset(icon, height: 100),
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 251, 241, 241),
+                borderRadius: BorderRadius.circular(30),
+                border: Border.all(color: const Color.fromARGB(255, 39, 35, 35)),
+              ),
+              child: Text(
+                label,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Playfair",
+                  fontSize: 14,
+                  color: Color.fromARGB(255, 32, 31, 32),
+                  letterSpacing: 0.5,
+                ),
               ),
             ),
           ],

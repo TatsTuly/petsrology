@@ -13,9 +13,9 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
   int selectedIndex = 0;
 
   final List<Color> themeColors = [
-    Color(0xFFF9C8D9), // light pink
-    Color(0xFFDCC6F0), // light purple
-    Color(0xFFB1D1FF), // sky blue
+    Color(0xFFF9C8D9),
+    Color(0xFFDCC6F0), 
+    Color(0xFFB1D1FF), 
     Color(0xFFAF9EC4), // purple
     Color(0xFF5A3E8D), // dark purple
   ];
@@ -179,10 +179,10 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
 
   Widget categorySelection() {
     final List<Color> buttonColors = [
-      const Color(0xFFF9C8D9), // light pink
-      const Color(0xFFDCC6F0), // light purple
-      const Color(0xFFB1D1FF), // sky blue
-      const Color(0xFFAF9EC4), // purple
+      const Color.fromARGB(255, 245, 142, 178), 
+      const Color.fromARGB(255, 204, 128, 254),
+      const Color.fromARGB(255, 138, 184, 249), 
+      const Color.fromARGB(255, 255, 130, 220),
     ];
 
     return SizedBox(
