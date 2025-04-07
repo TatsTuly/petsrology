@@ -1,28 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:petsrology/model/pets_model.dart';
-import 'package:petsrology/adoption_screens/Detail/detail.dart';
+import 'package:petsrology/product/product_model/product_model.dart';
+import 'package:petsrology/product/product_details/product_details.dart';
 
-class PetsHomeScreen extends StatefulWidget {
-  const PetsHomeScreen({super.key});
+class ProductsHomeScreen extends StatefulWidget {
+  const ProductsHomeScreen({super.key});
 
   @override
-  State<PetsHomeScreen> createState() => _PetsHomeScreenState();
+  State<ProductsHomeScreen> createState() => _ProductsHomeScreen();
 }
 
-class _PetsHomeScreenState extends State<PetsHomeScreen> {
+class _ProductsHomeScreen extends State<ProductsHomeScreen> {
   int selectedIndex = 0;
 
   final List<Color> themeColors = [
     Color(0xFFF9C8D9),
     Color(0xFFDCC6F0),
     Color(0xFFB1D1FF),
-    Color(0xFFAF9EC4), // purple
-    Color(0xFF5A3E8D), // dark purple
+    Color(0xFFAF9EC4),
+    Color(0xFF5A3E8D),
   ];
 
   @override
   Widget build(BuildContext context) {
-    List<List<PetsModel>> categories = [cats, dogs, birds, other];
+    List<List<ProductModel>> categories = [
+      petFood,
+      accessories,
+      medicine,
+      others
+    ];
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -36,11 +41,11 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                   CircleAvatar(
                     radius: 25,
                     backgroundImage:
-                        AssetImage("assets/profile_pic/profile_pic1.png"),
+                        AssetImage("assets/profile_pic/profile_pic2.png"),
                   ),
                   SizedBox(width: 5),
                   Text(
-                    "Hi, Tanjid",
+                    "Hi, Tuly",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                   )
                 ],
@@ -51,7 +56,7 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
               padding: EdgeInsets.only(left: 22),
               child: Text.rich(
                 TextSpan(
-                  text: "Adopt\n",
+                  text: "Shop\n",
                   style: TextStyle(
                     height: 1.1,
                     fontSize: 30,
@@ -59,7 +64,7 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                   ),
                   children: [
                     TextSpan(
-                      text: "your pet's here!",
+                      text: "your pet's essentials!",
                       style: TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.normal,
@@ -77,13 +82,14 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                 child: ListView.builder(
                   itemCount: categories[selectedIndex].length,
                   itemBuilder: (context, index) {
-                    final pet = categories[selectedIndex][index];
+                    final product = categories[selectedIndex][index];
                     return GestureDetector(
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DetailScreen(pets: pet),
+                            builder: (context) =>
+                                ProductDetails(products: product),
                           ),
                         );
                       },
@@ -109,16 +115,16 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                                 height: 100,
                                 margin: const EdgeInsets.all(10),
                                 decoration: BoxDecoration(
-                                  color: pet.color,
+                                  color: product.color,
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: Center(
                                   child: Hero(
-                                    tag: pet.image,
+                                    tag: product.image,
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(20),
                                       child: Image.asset(
-                                        pet.image,
+                                        product.image,
                                         fit: BoxFit.contain,
                                         width: 80,
                                         height: 80,
@@ -136,7 +142,7 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        pet.name,
+                                        product.name,
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 18,
@@ -145,7 +151,7 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                                       ),
                                       const SizedBox(height: 5),
                                       Text(
-                                        pet.breed,
+                                        product.brand,
                                         style: TextStyle(
                                           fontSize: 14,
                                           color: Colors.grey.shade700,
@@ -153,7 +159,7 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                                       ),
                                       const SizedBox(height: 5),
                                       Text(
-                                        "${pet.sex}, ${pet.age} year old",
+                                        product.price,
                                         style: TextStyle(
                                           fontSize: 13,
                                           color: Colors.grey.shade600,

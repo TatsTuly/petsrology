@@ -18,18 +18,18 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               width: double.infinity,
               height: constraints.maxHeight,
               decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 255, 249, 251)),
+                  color: Color.fromARGB(255, 255, 249, 251)),
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 children: [
                   const SizedBox(height: 30),
                   Image.asset(
-                    "assets/images/logo.png",
+                    "assets/images/Logo1.png",
                     height: 200,
                     width: 300,
                     fit: BoxFit.contain,
                   ),
-              
+
                   const Text(
                     "Welcome to Petsrology",
                     style: TextStyle(
@@ -80,8 +80,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         Navigator.pushNamed(context, '/signup');
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor:
-                            const Color.fromARGB(255, 0, 10, 196),
+                        backgroundColor: const Color.fromARGB(255, 0, 10, 196),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                           side: const BorderSide(color: Colors.white),
@@ -109,10 +108,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  Image.asset(
-                    "assets/logo/medialogo.png"
-                  
-                  ),
+                  Image.asset("assets/logo/medialogo.png"),
                 ],
               ),
             );

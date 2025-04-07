@@ -63,7 +63,11 @@ flutter:
      - assets/images/start2.png
      - assets/images/start3.png
      - assets/images/start5Vet.png
-     - assets/images/logo.png
+     - assets/images/Logo1.png
+     - assets/images/home_logo1.png
+     - assets/images/home_logo2.png
+     - assets/images/home_logo3.png
+     - assets/images/home_logo4.png
      - assets/images/start4.png
      - assets/adoption/dog/dog3.png
      - assets/adoption/dog/dog4.png
@@ -78,7 +82,20 @@ flutter:
      - assets/adoption/cat/cat3.png
      - assets/logo/adoptlogo.png
      - assets/logo/medialogo.png
-    
+     - assets/profile_pic/profile_pic1.png
+     - assets/profile_pic/profile_pic2.png
+     - assets/product/catfood1.png
+     - assets/product/catfood2.png
+     - assets/product/catfood3.png
+     - assets/product/dogfood1.png
+     - assets/product/petcollar.png
+     - assets/product/catbed.png
+     - assets/product/deworming_syrup_kitten.png
+     - assets/product/flea_&_tick_spray.png
+     - assets/product/shampoo.png
+     
+
+     
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -40,28 +40,29 @@ class HomePage extends StatelessWidget {
                 children: [
                   _buildCategoryButton(
                     context,
-                    icon: 'assets/logo/adoptlogo.png',
+                    icon: 'assets/images/home_logo1.png',
                     label: 'Adoption',
                     backgroundColor: Color.fromARGB(255, 253, 155, 188),
                     onTap: () => Navigator.pushNamed(context, '/home_screen'),
                   ),
                   _buildCategoryButton(
                     context,
-                    icon: 'assets/vet.png',
+                    icon: 'assets/images/home_logo2.png',
                     label: 'Veterinary',
                     backgroundColor: Color.fromARGB(255, 150, 185, 251),
                     onTap: () => Navigator.pushNamed(context, '/veterinary'),
                   ),
                   _buildCategoryButton(
                     context,
-                    icon: 'assets/care.png',
+                    icon: 'assets/images/home_logo3.png',
                     label: 'Pet Care',
                     backgroundColor: Color.fromARGB(255, 233, 154, 255),
-                    onTap: () => Navigator.pushNamed(context, '/petcare'),
+                    onTap: () =>
+                        Navigator.pushNamed(context, '/product_screen'),
                   ),
                   _buildCategoryButton(
                     context,
-                    icon: 'assets/essential.png',
+                    icon: 'assets/images/home_logo4.png',
                     label: 'Essentials',
                     backgroundColor: Color.fromARGB(255, 152, 226, 255),
                     onTap: () => Navigator.pushNamed(context, '/essentials'),
@@ -75,7 +76,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
- Widget _buildCategoryButton(
+  Widget _buildCategoryButton(
     BuildContext context, {
     required String icon,
     required String label,
@@ -107,7 +108,8 @@ class HomePage extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 251, 241, 241),
                 borderRadius: BorderRadius.circular(30),
-                border: Border.all(color: const Color.fromARGB(255, 39, 35, 35)),
+                border:
+                    Border.all(color: const Color.fromARGB(255, 39, 35, 35)),
               ),
               child: Text(
                 label,
