@@ -52,7 +52,7 @@ class _SignUpState extends State<SignUp> {
               width: double.infinity,
               height: double.infinity,
               decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 191, 253, 255),
+                color: Color.fromARGB(255, 241, 237, 239),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40),
                   topRight: Radius.circular(40),
@@ -121,7 +121,7 @@ class _SignUpState extends State<SignUp> {
         labelStyle: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.bold,
-          color: Color.fromARGB(255, 96, 1, 179),
+          color: Color.fromARGB(255, 2, 2, 2),
         ),
         filled: true,
         fillColor: Colors.white,

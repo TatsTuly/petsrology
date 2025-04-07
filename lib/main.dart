@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:petsrology/adoption_screens/adoption_form.dart';
 import 'package:petsrology/adoption_screens/home_screen.dart';
+import 'package:petsrology/adoption_screens/submission.dart';
 import 'package:petsrology/screen/home.dart';
 import 'package:petsrology/screen/loginscreen.dart';
 import 'package:petsrology/screen/onboarding.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         '/home_screen':(context)=>PetsHomeScreen(),
         '/home':(context)=>HomePage(),
         '/adoption_form':(context)=>AdoptionForm(),
+        '/submission':(context)=>SubmissionForm(),
       },
       initialRoute: '/',
     );

@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
               width: double.infinity,
               height: double.infinity,
               decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 248, 207, 226),
+                color: Color.fromARGB(255, 241, 237, 239),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40),
                   topRight: Radius.circular(40),
@@ -137,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
           fontSize: 16,
           fontWeight: FontWeight.bold,
           fontFamily: "Playfair",
-          color: Color.fromARGB(255, 96, 1, 179),
+          color: Color.fromARGB(255, 10, 10, 10),
         ),
         filled: true,
         fillColor: Colors.white,

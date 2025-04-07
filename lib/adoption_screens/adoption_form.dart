@@ -11,6 +11,7 @@ class _AdoptionFormState extends State<AdoptionForm> {
   final _formKey = GlobalKey<FormState>();
   bool hasExperience = false;
   String? reasonForAdoption;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +37,7 @@ class _AdoptionFormState extends State<AdoptionForm> {
             padding: EdgeInsets.only(top: 60, left: 22),
             child: Text(
               "Adoption Form",
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 28,
                 fontFamily: "Playfair",
@@ -50,7 +52,7 @@ class _AdoptionFormState extends State<AdoptionForm> {
               width: double.infinity,
               height: double.infinity,
               decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 191, 253, 255),
+              color: Color.fromARGB(255, 241, 237, 239),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40),
                   topRight: Radius.circular(40),
@@ -91,7 +93,6 @@ class _AdoptionFormState extends State<AdoptionForm> {
                         ],
                       ),
                       const SizedBox(height: 16),
-
                       // Why Adopt Field
                       TextFormField(
                         decoration: const InputDecoration(
@@ -126,18 +127,12 @@ class _AdoptionFormState extends State<AdoptionForm> {
                         child: ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
-                              // Handle form submission logic here
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content:
-                                        Text("Form Submitted Successfully")),
-                              );
-                              // Navigate or send data to server
+                              Navigator.pushNamed(context, '/submission');
                             }
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor:
-                                const Color.fromARGB(255, 8, 15, 239),
+                                const Color.fromARGB(255, 160, 1, 165),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
                               side: const BorderSide(color: Colors.white),
@@ -174,7 +169,7 @@ class _AdoptionFormState extends State<AdoptionForm> {
         labelStyle: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.bold,
-          color: Color.fromARGB(255, 96, 1, 179),
+          color: Color.fromARGB(255, 4, 4, 4),
         ),
         filled: true,
         fillColor: Colors.white,
