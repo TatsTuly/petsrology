@@ -134,7 +134,7 @@ class DetailScreen extends StatelessWidget {
                               ),
                               child: ElevatedButton(
                                 onPressed: () {
-                                  // Handle adopt logic here
+                                  Navigator.pushNamed(context, '/adoption_form');
                                 },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.transparent,
