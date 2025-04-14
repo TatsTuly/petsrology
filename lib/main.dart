@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:petsrology/adoption_screens/adoption_form.dart';
 import 'package:petsrology/adoption_screens/home_screen.dart';
 import 'package:petsrology/adoption_screens/submission.dart';
+import 'package:petsrology/firebase_options.dart';
 import 'package:petsrology/product/product_screen.dart';
 import 'package:petsrology/screen/home.dart';
 import 'package:petsrology/screen/loginscreen.dart';
@@ -10,7 +12,11 @@ import 'package:petsrology/screen/signup.dart';
 import 'package:petsrology/screen/splashscreen.dart';
 import 'package:petsrology/screen/welcome.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 

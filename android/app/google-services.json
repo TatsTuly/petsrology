@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "530051330326",
+    "project_id": "petsrology",
+    "storage_bucket": "petsrology.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530051330326:android:876cf7c38c41bc3be3a037",
+        "android_client_info": {
+          "package_name": "com.example.petsrology"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnrHAb3K1jBUQg6zDwAVfTw4maIfoznk4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
