@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:petsrology/nav_menu/about_us.dart';
+import 'package:petsrology/nav_menu/faq.dart';
+import 'package:petsrology/nav_menu/logout.dart';
+import 'package:petsrology/nav_menu/profile.dart';
+import 'package:petsrology/nav_menu/settings.dart';
 import 'package:provider/provider.dart';
 import 'package:petsrology/adoption_screens/adoption_form.dart';
 import 'package:petsrology/adoption_screens/home_screen.dart';
@@ -25,14 +30,13 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (ctx) => CartProvider(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Petsrology',
         theme: ThemeData(
           primarySwatch: Colors.cyan,
           fontFamily: 'Playfair',
@@ -49,6 +53,11 @@ class MyApp extends StatelessWidget {
           '/adoption_form': (context) => AdoptionForm(),
           '/submission': (context) => SubmissionForm(),
           '/product_screen': (context) => ProductsHomeScreen(),
+          '/profile': (context) => const ProfilePage(),
+          '/settings': (context) => const SettingsPage(),
+          '/faq': (context) => const FAQPage(),
+          '/about': (context) => const AboutUsPage(),
+          '/logout': (context) => const LogoutPage(),
         },
         initialRoute: '/',
       ),

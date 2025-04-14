@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,77 +6,31 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF2F0F5),
+      backgroundColor: const Color(0xFFF8F9FA), // Light background
+      appBar: AppBar(
+        title: const Text(
+          "Petsrology",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: const Color.fromARGB(255, 124, 31, 88),
+        elevation: 0,
+        iconTheme: const IconThemeData(
+            color: Colors.white), // Set menu button color to white
+      ),
+      drawer: _buildAppDrawer(context),
       body: SafeArea(
         child: Column(
           children: [
-            // App Bar with back button
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              child: Row(
-                children: [
-                  GestureDetector(
-                    onTap: () async {
-                      // Show dialog to confirm logout
-                      bool? logout = await showDialog<bool>(
-                        context: context,
-                        builder: (BuildContext context) => AlertDialog(
-                          title: const Text('Logout', style: TextStyle(fontFamily: 'Playfair')),
-                          content: const Text(
-                            'Do you want to log out?',
-                            style: TextStyle(fontFamily: 'Playfair'),
-                          ),
-                          actions: [
-                            TextButton(
-                              onPressed: () => Navigator.pop(context, false),
-                              child: const Text('Cancel'),
-                            ),
-                            TextButton(
-                              onPressed: () => Navigator.pop(context, true),
-                              child: const Text('Logout'),
-                            ),
-                          ],
-                        ),
-                      );
-
-                      if (logout == true) {
-                        await FirebaseAuth.instance.signOut();
-                        Navigator.pushReplacementNamed(context, '/loginscreen');
-                      }
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 96, 2, 125).withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: const Icon(
-                        Icons.exit_to_app,
-                        color: Color.fromARGB(255, 96, 2, 125),
-                        size: 22,
-                      ),
-                    ),
-                  ),
-                  const Spacer(),
-                  CircleAvatar(
-                    radius: 18,
-                    backgroundColor: const Color.fromARGB(255, 96, 2, 125).withOpacity(0.2),
-                    child: const Icon(
-                      Icons.person,
-                      color: Color.fromARGB(255, 96, 2, 125),
-                      size: 22,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            
             // Top Image
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Image.asset(
                 'assets/images/start4.png',
-                height: 160, // Slightly reduced to accommodate the new app bar
+                height: 180,
                 width: double.infinity,
                 fit: BoxFit.cover,
               ),
@@ -86,9 +39,9 @@ class HomePage extends StatelessWidget {
             const Text(
               "What are you looking for?",
               style: TextStyle(
-                fontSize: 22,
+                fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 96, 2, 125), // Dark Purple
+                color: const Color.fromARGB(255, 124, 31, 88),
               ),
             ),
             const SizedBox(height: 20),
@@ -104,29 +57,29 @@ class HomePage extends StatelessWidget {
                     context,
                     icon: 'assets/images/home_logo1.png',
                     label: 'Adoption',
-                    backgroundColor: Color.fromARGB(255, 253, 155, 188),
+                    backgroundColor: const Color(0xFFF9C8D9), // Light pink
                     onTap: () => Navigator.pushNamed(context, '/home_screen'),
                   ),
                   _buildCategoryButton(
                     context,
                     icon: 'assets/images/home_logo2.png',
                     label: 'Veterinary',
-                    backgroundColor: Color.fromARGB(255, 150, 185, 251),
+                    backgroundColor: const Color(0xFFB1D1FF), // Light blue
                     onTap: () => Navigator.pushNamed(context, '/veterinary'),
                   ),
                   _buildCategoryButton(
                     context,
                     icon: 'assets/images/home_logo3.png',
-                    label: 'Pet Care',
-                    backgroundColor: Color.fromARGB(255, 233, 154, 255),
+                    label: 'Pet Essentials',
+                    backgroundColor: const Color(0xFFDCC6F0), // Light purple
                     onTap: () =>
                         Navigator.pushNamed(context, '/product_screen'),
                   ),
                   _buildCategoryButton(
                     context,
                     icon: 'assets/images/home_logo4.png',
-                    label: 'Essentials',
-                    backgroundColor: Color.fromARGB(255, 152, 226, 255),
+                    label: 'Pet Care Tips',
+                    backgroundColor: const Color(0xFFAFE1AF), // Light green
                     onTap: () => Navigator.pushNamed(context, '/essentials'),
                   ),
                 ],
@@ -168,24 +121,106 @@ class HomePage extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 251, 241, 241),
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(30),
                 border:
-                    Border.all(color: const Color.fromARGB(255, 39, 35, 35)),
+                    Border.all(color: const Color.fromARGB(255, 124, 31, 88)),
               ),
               child: Text(
                 label,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontFamily: "Playfair",
                   fontSize: 14,
-                  color: Color.fromARGB(255, 32, 31, 32),
+                  color: Color.fromARGB(255, 124, 31, 88),
                   letterSpacing: 0.5,
                 ),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildAppDrawer(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          DrawerHeader(
+            decoration: const BoxDecoration(
+              color: const Color.fromARGB(255, 124, 31, 88),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const CircleAvatar(
+                  radius: 30,
+                  backgroundImage:
+                      AssetImage('assets/profile_pic/profile_pic1.png'),
+                ),
+                const SizedBox(height: 10),
+                const Text(
+                  "Hi, Tanjid",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Text(
+                  "tanjid@example.com",
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 14,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.person,
+                color: const Color.fromARGB(255, 124, 31, 88)),
+            title: const Text("Profile"),
+            onTap: () {
+              Navigator.pushNamed(context, '/profile'); // Navigate to Profile
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.settings,
+                color: const Color.fromARGB(255, 124, 31, 88)),
+            title: const Text("Settings"),
+            onTap: () {
+              Navigator.pushNamed(context, '/settings'); // Navigate to Settings
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.help_outline,
+                color: const Color.fromARGB(255, 124, 31, 88)),
+            title: const Text("FAQ"),
+            onTap: () {
+              Navigator.pushNamed(context, '/faq'); // Navigate to FAQ
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.info_outline,
+                color: const Color.fromARGB(255, 124, 31, 88)),
+            title: const Text("About Us"),
+            onTap: () {
+              Navigator.pushNamed(context, '/about'); // Navigate to About Us
+            },
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.logout,
+                color: const Color.fromARGB(255, 124, 31, 88)),
+            title: const Text("Logout"),
+            onTap: () {
+              Navigator.pushReplacementNamed(
+                  context, '/'); // Navigate to WelcomeScreen
+            },
+          ),
+        ],
       ),
     );
   }
