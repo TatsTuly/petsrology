@@ -88,6 +88,7 @@ flutter:
      - assets/logo/medialogo.png
      - assets/profile_pic/profile_pic1.png
      - assets/profile_pic/profile_pic2.png
+     - assets/profile_pic/profile_pic3.png
      - assets/product/catfood1.png
      - assets/product/catfood2.png
      - assets/product/catfood3.png
