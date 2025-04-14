@@ -5,6 +5,7 @@ import 'package:petsrology/nav_menu/faq.dart';
 import 'package:petsrology/nav_menu/logout.dart';
 import 'package:petsrology/nav_menu/profile.dart';
 import 'package:petsrology/nav_menu/settings.dart';
+import 'package:petsrology/vetinary/screens/veterinary_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:petsrology/adoption_screens/adoption_form.dart';
 import 'package:petsrology/adoption_screens/home_screen.dart';
@@ -58,6 +59,7 @@ class MyApp extends StatelessWidget {
           '/faq': (context) => const FAQPage(),
           '/about': (context) => const AboutUsPage(),
           '/logout': (context) => const LogoutPage(),
+          '/veterinary_ screen': (context) =>  VeterinaryScreen(),
         },
         initialRoute: '/',
       ),

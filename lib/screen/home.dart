@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: const Color.fromARGB(255, 124, 31, 88),
+                color: Color.fromARGB(255, 124, 31, 88),
               ),
             ),
             const SizedBox(height: 20),
@@ -65,12 +65,12 @@ class HomePage extends StatelessWidget {
                     icon: 'assets/images/home_logo2.png',
                     label: 'Veterinary',
                     backgroundColor: const Color(0xFFB1D1FF), // Light blue
-                    onTap: () => Navigator.pushNamed(context, '/veterinary'),
+                    onTap: () => Navigator.pushNamed(context, '/veterinary_ screen'),
                   ),
                   _buildCategoryButton(
                     context,
                     icon: 'assets/images/home_logo3.png',
-                    label: 'Pet Essentials',
+                    label: 'Pet Products',
                     backgroundColor: const Color(0xFFDCC6F0), // Light purple
                     onTap: () =>
                         Navigator.pushNamed(context, '/product_screen'),
@@ -149,7 +149,7 @@ class HomePage extends StatelessWidget {
         children: [
           DrawerHeader(
             decoration: const BoxDecoration(
-              color: const Color.fromARGB(255, 124, 31, 88),
+              color: Color.fromARGB(255, 124, 31, 88),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -180,7 +180,7 @@ class HomePage extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.person,
-                color: const Color.fromARGB(255, 124, 31, 88)),
+                color: Color.fromARGB(255, 124, 31, 88)),
             title: const Text("Profile"),
             onTap: () {
               Navigator.pushNamed(context, '/profile'); // Navigate to Profile
@@ -188,7 +188,7 @@ class HomePage extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.settings,
-                color: const Color.fromARGB(255, 124, 31, 88)),
+                color: Color.fromARGB(255, 124, 31, 88)),
             title: const Text("Settings"),
             onTap: () {
               Navigator.pushNamed(context, '/settings'); // Navigate to Settings
@@ -196,7 +196,7 @@ class HomePage extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.help_outline,
-                color: const Color.fromARGB(255, 124, 31, 88)),
+                color: Color.fromARGB(255, 124, 31, 88)),
             title: const Text("FAQ"),
             onTap: () {
               Navigator.pushNamed(context, '/faq'); // Navigate to FAQ
@@ -204,7 +204,7 @@ class HomePage extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.info_outline,
-                color: const Color.fromARGB(255, 124, 31, 88)),
+                color: Color.fromARGB(255, 124, 31, 88)),
             title: const Text("About Us"),
             onTap: () {
               Navigator.pushNamed(context, '/about'); // Navigate to About Us
@@ -213,7 +213,7 @@ class HomePage extends StatelessWidget {
           const Divider(),
           ListTile(
             leading: const Icon(Icons.logout,
-                color: const Color.fromARGB(255, 124, 31, 88)),
+                color: Color.fromARGB(255, 124, 31, 88)),
             title: const Text("Logout"),
             onTap: () {
               Navigator.pushReplacementNamed(
