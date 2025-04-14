@@ -64,13 +64,12 @@ class HomePage extends StatelessWidget {
                     icon: 'assets/images/home_logo2.png',
                     label: 'Veterinary',
                     backgroundColor: const Color(0xFFB1D1FF), // Light blue
-                    onTap: () =>
-                        Navigator.pushNamed(context, '/veterinary_ screen'),
+                    onTap: () => Navigator.pushNamed(context, '/veterinary'),
                   ),
                   _buildCategoryButton(
                     context,
                     icon: 'assets/images/home_logo3.png',
-                    label: 'Pet Essentials',
+                    label: 'Pet Products',
                     backgroundColor: const Color(0xFFDCC6F0), // Light purple
                     onTap: () =>
                         Navigator.pushNamed(context, '/product_screen'),

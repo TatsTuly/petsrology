@@ -200,60 +200,82 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
   }
 
   Widget categorySelection() {
-    final List<Color> buttonColors = [
-      const Color.fromARGB(255, 245, 142, 178),
-      const Color.fromARGB(255, 204, 128, 254),
-      const Color.fromARGB(255, 138, 184, 249),
-      const Color.fromARGB(255, 255, 130, 220),
+    // Define category icons
+    final List<IconData> categoryIcons = [
+      Icons.pets, // For cats
+      Icons.pets_outlined, // For dogs - fixed from dog_outlined which doesn't exist
+      Icons.flutter_dash_outlined, // For birds
+      Icons.category_outlined, // For others
+    ];
+
+    // Define category colors similar to veterinary screen
+    final List<Color> categoryColors = [
+      const Color.fromARGB(255, 214, 108, 244), // Purple for Cats
+      const Color.fromARGB(255, 228, 110, 149), // Pink for Dogs
+      const Color.fromARGB(255, 131, 133, 235), // Blue for Birds
+      const Color.fromARGB(255, 133, 216, 235), // Teal for Others
     ];
 
     return SizedBox(
       height: 100,
       child: ListView.builder(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         scrollDirection: Axis.horizontal,
         itemCount: categoryList.length,
         physics: const BouncingScrollPhysics(),
         itemBuilder: ((context, index) {
           final isSelected = selectedIndex == index;
-          return GestureDetector(
-            onTap: () {
-              setState(() {
-                selectedIndex = index;
-              });
-            },
-            child: Padding(
-              padding: const EdgeInsets.only(left: 30, top: 10),
-              child: Column(
-                children: [
-                  Container(
-                    height: 80,
-                    width: 75,
-                    decoration: BoxDecoration(
-                      color: buttonColors[index % buttonColors.length],
-                      borderRadius: BorderRadius.circular(15),
-                      border: isSelected
-                          ? Border.all(
-                              color: const Color(0xFF5A3E8D),
-                              width: 2,
-                            )
-                          : null,
-                    ),
-                    child: Center(
-                      child: Text(
+          final color = categoryColors[index];
+          
+          return Container(
+            margin: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
+            width: 80,
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  selectedIndex = index;
+                });
+              },
+              child: Card(
+                elevation: isSelected ? 4 : 0,
+                shadowColor: color.withOpacity(0.5),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  side: BorderSide(
+                    color: isSelected ? color : color.withOpacity(0.3),
+                    width: isSelected ? 2 : 1,
+                  ),
+                ),
+                color: isSelected ? color.withOpacity(0.2) : color.withOpacity(0.08),
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 18,
+                        backgroundColor: color.withOpacity(0.2),
+                        child: Icon(
+                          categoryIcons[index],
+                          color: color,
+                          size: isSelected ? 20 : 18,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
                         categoryList[index],
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: isSelected
-                              ? const Color(0xFF5A3E8D)
-                              : Colors.black87,
-                          fontWeight:
-                              isSelected ? FontWeight.bold : FontWeight.normal,
-                          fontSize: 16,
+                          fontSize: 12,
+                          color: color,
+                          fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
                         ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                    ),
-                  )
-                ],
+                    ],
+                  ),
+                ),
               ),
             ),
           );
