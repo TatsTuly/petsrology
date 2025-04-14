@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,12 +11,73 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
+            // App Bar with back button
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              child: Row(
+                children: [
+                  GestureDetector(
+                    onTap: () async {
+                      // Show dialog to confirm logout
+                      bool? logout = await showDialog<bool>(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                          title: const Text('Logout', style: TextStyle(fontFamily: 'Playfair')),
+                          content: const Text(
+                            'Do you want to log out?',
+                            style: TextStyle(fontFamily: 'Playfair'),
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(context, false),
+                              child: const Text('Cancel'),
+                            ),
+                            TextButton(
+                              onPressed: () => Navigator.pop(context, true),
+                              child: const Text('Logout'),
+                            ),
+                          ],
+                        ),
+                      );
+
+                      if (logout == true) {
+                        await FirebaseAuth.instance.signOut();
+                        Navigator.pushReplacementNamed(context, '/loginscreen');
+                      }
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 96, 2, 125).withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Icon(
+                        Icons.exit_to_app,
+                        color: Color.fromARGB(255, 96, 2, 125),
+                        size: 22,
+                      ),
+                    ),
+                  ),
+                  const Spacer(),
+                  CircleAvatar(
+                    radius: 18,
+                    backgroundColor: const Color.fromARGB(255, 96, 2, 125).withOpacity(0.2),
+                    child: const Icon(
+                      Icons.person,
+                      color: Color.fromARGB(255, 96, 2, 125),
+                      size: 22,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            
             // Top Image
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Image.asset(
                 'assets/images/start4.png',
-                height: 180,
+                height: 160, // Slightly reduced to accommodate the new app bar
                 width: double.infinity,
                 fit: BoxFit.cover,
               ),

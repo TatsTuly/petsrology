@@ -224,7 +224,7 @@ class _LoginScreenState extends State<LoginScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Reset Password'),
+          title: const Text('Reset Password',style: TextStyle(fontFamily: "Playfair"),),
           content: TextField(
             controller: emailController,
             decoration: const InputDecoration(
@@ -251,7 +251,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       content: Text('Password reset email sent. Check your inbox.'),
-                      backgroundColor: Colors.green,
+                      backgroundColor: Color.fromARGB(255, 155, 1, 124),
                     ),
                   );
                 } catch (e) {

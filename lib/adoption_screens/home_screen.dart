@@ -29,11 +29,28 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 22, top: 10),
+            Padding(
+              padding: EdgeInsets.only(left: 22, top: 10, right: 22),
               child: Row(
                 children: [
-                  CircleAvatar(
+                  // Back button
+                  GestureDetector(
+                    onTap: () => Navigator.pushReplacementNamed(context, '/home'),
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: themeColors[4].withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Color(0xFF5A3E8D),
+                        size: 20,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 15),
+                  const CircleAvatar(
                     radius: 25,
                     backgroundImage:
                         AssetImage("assets/profile_pic/profile_pic1.png"),
@@ -41,7 +58,11 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                   SizedBox(width: 5),
                   Text(
                     "Hi, Tanjid",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold, 
+                      fontSize: 22,
+                      fontFamily: "Playfair",
+                    ),
                   )
                 ],
               ),

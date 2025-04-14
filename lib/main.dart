@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 import 'package:petsrology/adoption_screens/adoption_form.dart';
 import 'package:petsrology/adoption_screens/home_screen.dart';
 import 'package:petsrology/adoption_screens/submission.dart';
 import 'package:petsrology/firebase_options.dart';
+import 'package:petsrology/product/product_model/cart_model.dart';
 import 'package:petsrology/product/product_screen.dart';
 import 'package:petsrology/screen/home.dart';
 import 'package:petsrology/screen/loginscreen.dart';
@@ -26,27 +28,30 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.cyan,
-        fontFamily: 'Playfair',
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return ChangeNotifierProvider(
+      create: (ctx) => CartProvider(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.cyan,
+          fontFamily: 'Playfair',
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        routes: {
+          '/': (context) => SplashScreen(),
+          '/onboarding': (context) => OnboardingScreen(),
+          '/loginscreen': (context) => LoginScreen(),
+          '/welcome': (context) => WelcomeScreen(),
+          '/signup': (context) => SignUp(),
+          '/home_screen': (context) => PetsHomeScreen(),
+          '/home': (context) => HomePage(),
+          '/adoption_form': (context) => AdoptionForm(),
+          '/submission': (context) => SubmissionForm(),
+          '/product_screen': (context) => ProductsHomeScreen(),
+        },
+        initialRoute: '/',
       ),
-      routes: {
-        '/': (context) => SplashScreen(),
-        '/onboarding': (context) => OnboardingScreen(),
-        '/loginscreen': (context) => LoginScreen(),
-        '/welcome': (context) => WelcomeScreen(),
-        '/signup': (context) => SignUp(),
-        '/home_screen': (context) => PetsHomeScreen(),
-        '/home': (context) => HomePage(),
-        '/adoption_form': (context) => AdoptionForm(),
-        '/submission': (context) => SubmissionForm(),
-        '/product_screen': (context) => ProductsHomeScreen(),
-      },
-      initialRoute: '/',
     );
   }
 }

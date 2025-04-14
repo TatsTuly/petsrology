@@ -19,6 +19,15 @@ class _ProductsHomeScreen extends State<ProductsHomeScreen> {
     Color(0xFFAF9EC4),
     Color(0xFF5A3E8D),
   ];
+  
+  // Convert price from $ to Tk (approximately 1$ = 112 Tk)
+  String convertToTk(String dollarPrice) {
+    // Remove the $ sign and convert to double
+    final price = double.tryParse(dollarPrice.replaceAll('\$', '')) ?? 0.0;
+    // Convert to Tk (approximately 112 Tk per dollar)
+    final tkPrice = (price * 112).round();
+    return 'Tk. $tkPrice';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +43,28 @@ class _ProductsHomeScreen extends State<ProductsHomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 22, top: 10),
+            Padding(
+              padding: EdgeInsets.only(left: 22, top: 10, right: 22),
               child: Row(
                 children: [
-                  CircleAvatar(
+                  // Back button
+                  GestureDetector(
+                    onTap: () => Navigator.pushReplacementNamed(context, '/home'),
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: themeColors[4].withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Color(0xFF5A3E8D),
+                        size: 20,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 15),
+                  const CircleAvatar(
                     radius: 25,
                     backgroundImage:
                         AssetImage("assets/profile_pic/profile_pic2.png"),
@@ -159,7 +185,7 @@ class _ProductsHomeScreen extends State<ProductsHomeScreen> {
                                       ),
                                       const SizedBox(height: 5),
                                       Text(
-                                        product.price,
+                                        convertToTk(product.price),
                                         style: TextStyle(
                                           fontSize: 13,
                                           color: Colors.grey.shade600,

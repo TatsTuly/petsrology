@@ -33,8 +33,31 @@ class _AdoptionFormState extends State<AdoptionForm> {
               ),
             ),
           ),
+          // Back button
+          Positioned(
+            top: 50,
+            left: 20,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushReplacementNamed(context, '/home_screen');
+              },
+              child: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.3),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Icon(
+                  Icons.arrow_back_ios_new,
+                  color: Colors.white,
+                  size: 26,
+                ),
+              ),
+            ),
+          ),
+          // Title text moved to better accommodate back button
           const Padding(
-            padding: EdgeInsets.only(top: 60, left: 22),
+            padding: EdgeInsets.only(top: 60, left: 70),
             child: Text(
               "Adoption Form",
               textAlign: TextAlign.center,
