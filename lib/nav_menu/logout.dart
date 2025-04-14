@@ -9,23 +9,23 @@ class LogoutPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           "Logout",
-          style: TextStyle(color: Colors.white), // Set title color to white
+          style: TextStyle(color: Colors.white),
         ),
         backgroundColor: const Color.fromARGB(255, 124, 31, 88),
         iconTheme: const IconThemeData(
-          color: Colors.white, // Set back button color to white
+          color: Colors.white,
         ),
       ),
       body: Center(
         child: ElevatedButton.icon(
           onPressed: () {
-            _showLogoutConfirmation(context); // Show confirmation dialog
+            _showLogoutConfirmation(context);
           },
           icon: const Icon(Icons.logout),
           label: const Text("Confirm Logout"),
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color.fromARGB(255, 124, 31, 88),
-            foregroundColor: Colors.white, // Set text color to white
+            foregroundColor: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),
@@ -45,15 +45,14 @@ class LogoutPage extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.pop(dialogContext); // Close the dialog
+                Navigator.pop(dialogContext);
               },
               child: const Text("No"),
             ),
             TextButton(
               onPressed: () {
-                Navigator.pop(dialogContext); // Close the dialog
-                Navigator.pushReplacementNamed(
-                    context, '/'); // Navigate to Welcome Page
+                Navigator.pop(dialogContext);
+                Navigator.pushReplacementNamed(context, '/');
               },
               child: const Text("Yes"),
             ),

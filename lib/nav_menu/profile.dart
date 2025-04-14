@@ -9,11 +9,11 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   final TextEditingController _nameController =
-      TextEditingController(text: "Tanjid Ahmed Shafin");
+      TextEditingController(text: "Mezbaul Islam Zion");
   final TextEditingController _addressController =
       TextEditingController(text: "Dhaka, Bangladesh");
   final TextEditingController _dobController =
-      TextEditingController(text: "January 1, 1990");
+      TextEditingController(text: "January 1, 1995");
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +21,10 @@ class _ProfilePageState extends State<ProfilePage> {
       appBar: AppBar(
         title: const Text(
           "Profile",
-          style: TextStyle(color: Colors.white), // Set title color to white
+          style: TextStyle(color: Colors.white),
         ),
         backgroundColor: const Color.fromARGB(255, 124, 31, 88),
-        iconTheme: const IconThemeData(
-            color: Colors.white), // Set back button color to white
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -39,12 +38,11 @@ class _ProfilePageState extends State<ProfilePage> {
                 const CircleAvatar(
                   radius: 60,
                   backgroundImage:
-                      AssetImage('assets/profile_pic/profile_pic1.png'),
+                      AssetImage('assets/profile_pic/profile_pic3.png'),
                 ),
                 IconButton(
                   icon: const Icon(Icons.camera_alt, color: Colors.white),
                   onPressed: () {
-                    // Handle photo selection
                     _changeProfilePicture();
                   },
                   color: const Color.fromARGB(255, 124, 31, 88),
@@ -53,7 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
             const SizedBox(height: 20),
-            // Editable Name Field
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
@@ -93,7 +91,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             const SizedBox(height: 20),
-            // Editable Date of Birth Field
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
@@ -113,7 +111,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             const SizedBox(height: 30),
-            // Logout Button
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: ElevatedButton.icon(
@@ -139,7 +137,6 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   void _changeProfilePicture() {
-    // Handle profile picture change logic here
     showDialog(
       context: context,
       builder: (context) => AlertDialog(

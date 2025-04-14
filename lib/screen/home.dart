@@ -6,7 +6,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FA), // Light background
+      backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
         title: const Text(
           "Petsrology",
@@ -18,8 +18,7 @@ class HomePage extends StatelessWidget {
         ),
         backgroundColor: const Color.fromARGB(255, 124, 31, 88),
         elevation: 0,
-        iconTheme: const IconThemeData(
-            color: Colors.white), // Set menu button color to white
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       drawer: _buildAppDrawer(context),
       body: SafeArea(
@@ -65,7 +64,7 @@ class HomePage extends StatelessWidget {
                     icon: 'assets/images/home_logo2.png',
                     label: 'Veterinary',
                     backgroundColor: const Color(0xFFB1D1FF), // Light blue
-                    onTap: () => Navigator.pushNamed(context, '/veterinary_ screen'),
+                    onTap: () => Navigator.pushNamed(context, '/veterinary'),
                   ),
                   _buildCategoryButton(
                     context,
@@ -157,11 +156,11 @@ class HomePage extends StatelessWidget {
                 const CircleAvatar(
                   radius: 30,
                   backgroundImage:
-                      AssetImage('assets/profile_pic/profile_pic1.png'),
+                      AssetImage('assets/profile_pic/profile_pic3.png'),
                 ),
                 const SizedBox(height: 10),
                 const Text(
-                  "Hi, Tanjid",
+                  "Hi, Zion",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -169,7 +168,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 const Text(
-                  "tanjid@example.com",
+                  "zion@example.com",
                   style: TextStyle(
                     color: Colors.white70,
                     fontSize: 14,
@@ -183,7 +182,7 @@ class HomePage extends StatelessWidget {
                 color: Color.fromARGB(255, 124, 31, 88)),
             title: const Text("Profile"),
             onTap: () {
-              Navigator.pushNamed(context, '/profile'); // Navigate to Profile
+              Navigator.pushNamed(context, '/profile');
             },
           ),
           ListTile(
@@ -191,7 +190,7 @@ class HomePage extends StatelessWidget {
                 color: Color.fromARGB(255, 124, 31, 88)),
             title: const Text("Settings"),
             onTap: () {
-              Navigator.pushNamed(context, '/settings'); // Navigate to Settings
+              Navigator.pushNamed(context, '/settings');
             },
           ),
           ListTile(
@@ -199,7 +198,7 @@ class HomePage extends StatelessWidget {
                 color: Color.fromARGB(255, 124, 31, 88)),
             title: const Text("FAQ"),
             onTap: () {
-              Navigator.pushNamed(context, '/faq'); // Navigate to FAQ
+              Navigator.pushNamed(context, '/faq');
             },
           ),
           ListTile(
@@ -207,7 +206,7 @@ class HomePage extends StatelessWidget {
                 color: Color.fromARGB(255, 124, 31, 88)),
             title: const Text("About Us"),
             onTap: () {
-              Navigator.pushNamed(context, '/about'); // Navigate to About Us
+              Navigator.pushNamed(context, '/about');
             },
           ),
           const Divider(),
@@ -216,8 +215,7 @@ class HomePage extends StatelessWidget {
                 color: Color.fromARGB(255, 124, 31, 88)),
             title: const Text("Logout"),
             onTap: () {
-              Navigator.pushReplacementNamed(
-                  context, '/'); // Navigate to WelcomeScreen
+              Navigator.pushReplacementNamed(context, '/');
             },
           ),
         ],
