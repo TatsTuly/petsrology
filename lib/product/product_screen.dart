@@ -238,7 +238,7 @@ class _ProductsHomeScreen extends State<ProductsHomeScreen> {
       const Color.fromARGB(255, 133, 216, 235), // Teal for Others
     ];
 
-    return Container(
+    return SizedBox(
       height: 112, // Slightly increased height to prevent any overflow
       child: ListView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 15),

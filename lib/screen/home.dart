@@ -64,7 +64,7 @@ class HomePage extends StatelessWidget {
                     icon: 'assets/images/home_logo2.png',
                     label: 'Veterinary',
                     backgroundColor: const Color(0xFFB1D1FF), // Light blue
-                    onTap: () => Navigator.pushNamed(context, '/veterinary'),
+                    onTap: () => Navigator.pushNamed(context, '/veterinary_ screen'),
                   ),
                   _buildCategoryButton(
                     context,

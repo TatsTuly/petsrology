@@ -12,6 +12,14 @@ class ListOfDoctor extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final isSmallScreen = screenWidth < 360;
     
+    // Extract the name without "Dr." prefix if it exists
+    String displayName = doctor.name;
+    if (displayName.startsWith("Dr. ")) {
+      displayName = displayName.substring(4); // Remove "Dr. " prefix
+    } else if (displayName.startsWith("Dr.")) {
+      displayName = displayName.substring(3); // Remove "Dr." prefix
+    }
+    
     return Container(
       padding: EdgeInsets.all(isSmallScreen ? 12 : 16),
       decoration: BoxDecoration(
@@ -27,82 +35,56 @@ class ListOfDoctor extends StatelessWidget {
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // Avatar with responsive size
           CircleAvatar(
-            radius: isSmallScreen ? 35 : 40,
+            radius: isSmallScreen ? 40 : 45,
             backgroundColor: Color(doctor.color),
             backgroundImage: NetworkImage(doctor.image),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 16),
           
-          // Doctor name with overflow handling
-          Text(
-            "Dr. ${doctor.name}",
-            style: TextStyle(
-              fontSize: isSmallScreen ? 15 : 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.black87,
-            ),
-            textAlign: TextAlign.center,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
+          // Doctor name without repeating "Dr." prefix
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Dr. ",
+                style: TextStyle(
+                  fontSize: isSmallScreen ? 16 : 17,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
+                ),
+              ),
+              Flexible(
+                child: Text(
+                  displayName,
+                  style: TextStyle(
+                    fontSize: isSmallScreen ? 16 : 17,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black87,
+                  ),
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ],
           ),
-          const SizedBox(height: 4),
+          const SizedBox(height: 8),
           
           // Specialist with overflow handling
           Text(
             doctor.specialist,
             style: TextStyle(
-              fontSize: isSmallScreen ? 12 : 13,
+              fontSize: isSmallScreen ? 13 : 14,
               color: Colors.black45,
               fontWeight: FontWeight.w500,
             ),
             textAlign: TextAlign.center,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-          ),
-          const SizedBox(height: 8),
-          
-          // Responsive wrapper for price
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            decoration: BoxDecoration(
-              color: AppColors.primaryLight.withOpacity(0.15),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Text(
-              "৳${doctor.price}",
-              style: const TextStyle(
-                color: AppColors.primaryColor,
-                fontWeight: FontWeight.bold,
-                fontSize: 13,
-              ),
-            ),
-          ),
-          
-          // Animal types treated
-          const SizedBox(height: 8),
-          Wrap(
-            alignment: WrapAlignment.center,
-            spacing: 4,
-            runSpacing: 4,
-            children: doctor.treatsAnimals.take(2).map((animal) => 
-              Chip(
-                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                visualDensity: VisualDensity.compact,
-                labelPadding: const EdgeInsets.symmetric(horizontal: 4),
-                padding: EdgeInsets.zero,
-                backgroundColor: AppColors.cardColor,
-                label: Text(
-                  animal,
-                  style: TextStyle(
-                    fontSize: isSmallScreen ? 10 : 11,
-                    color: AppColors.primaryDark,
-                  ),
-                ),
-              ),
-            ).toList(),
           ),
         ],
       ),
