@@ -120,8 +120,9 @@ class _ProductsHomeScreen extends State<ProductsHomeScreen> {
                         );
                       },
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 20),
+                        padding: const EdgeInsets.only(top: 20, right: 10),
                         child: Container(
+                          height: product.name.length > 25 ? 120 : 100, // Dynamic height based on product name length
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20),
@@ -135,10 +136,11 @@ class _ProductsHomeScreen extends State<ProductsHomeScreen> {
                             ],
                           ),
                           child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
-                                width: 100,
-                                height: 100,
+                                width: 90,
+                                height: 90,
                                 margin: const EdgeInsets.all(10),
                                 decoration: BoxDecoration(
                                   color: product.color,
@@ -152,8 +154,8 @@ class _ProductsHomeScreen extends State<ProductsHomeScreen> {
                                       child: Image.asset(
                                         product.image,
                                         fit: BoxFit.contain,
-                                        width: 80,
-                                        height: 80,
+                                        width: 70,
+                                        height: 70,
                                       ),
                                     ),
                                   ),
@@ -162,33 +164,42 @@ class _ProductsHomeScreen extends State<ProductsHomeScreen> {
                               Expanded(
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      vertical: 10, horizontal: 5),
+                                      vertical: 12),
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text(
-                                        product.name,
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18,
-                                          color: themeColors[4],
+                                      Container(
+                                        constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.55),
+                                        child: Text(
+                                          product.name,
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15,
+                                            color: themeColors[4],
+                                            height: 1.2,
+                                          ),
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
                                         ),
                                       ),
-                                      const SizedBox(height: 5),
+                                      const SizedBox(height: 4),
                                       Text(
                                         product.brand,
                                         style: TextStyle(
-                                          fontSize: 14,
+                                          fontSize: 13,
                                           color: Colors.grey.shade700,
                                         ),
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
                                       ),
-                                      const SizedBox(height: 5),
+                                      const SizedBox(height: 4),
                                       Text(
                                         convertToTk(product.price),
                                         style: TextStyle(
                                           fontSize: 13,
-                                          color: Colors.grey.shade600,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.grey.shade700,
                                         ),
                                       ),
                                     ],
@@ -211,60 +222,85 @@ class _ProductsHomeScreen extends State<ProductsHomeScreen> {
   }
 
   Widget categorySelection() {
-    final List<Color> buttonColors = [
-      const Color.fromARGB(255, 245, 142, 178),
-      const Color.fromARGB(255, 204, 128, 254),
-      const Color.fromARGB(255, 138, 184, 249),
-      const Color.fromARGB(255, 255, 130, 220),
+    // Define category icons
+    final List<IconData> categoryIcons = [
+      Icons.food_bank_outlined, // For Pet Food
+      Icons.pets_outlined, // For Accessories
+      Icons.medication_outlined, // For Medicine
+      Icons.more_horiz, // For Others
     ];
 
-    return SizedBox(
-      height: 100,
+    // Define category colors similar to veterinary screen
+    final List<Color> categoryColors = [
+      const Color.fromARGB(255, 214, 108, 244), // Purple for Pet Food
+      const Color.fromARGB(255, 228, 110, 149), // Pink for Accessories
+      const Color.fromARGB(255, 131, 133, 235), // Blue for Medicine
+      const Color.fromARGB(255, 133, 216, 235), // Teal for Others
+    ];
+
+    return Container(
+      height: 112, // Slightly increased height to prevent any overflow
       child: ListView.builder(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         scrollDirection: Axis.horizontal,
         itemCount: categoryList.length,
         physics: const BouncingScrollPhysics(),
         itemBuilder: ((context, index) {
           final isSelected = selectedIndex == index;
+          final color = categoryColors[index];
+          
           return GestureDetector(
             onTap: () {
               setState(() {
                 selectedIndex = index;
               });
             },
-            child: Padding(
-              padding: const EdgeInsets.only(left: 30, top: 10),
-              child: Column(
-                children: [
-                  Container(
-                    height: 80,
-                    width: 75,
-                    decoration: BoxDecoration(
-                      color: buttonColors[index % buttonColors.length],
-                      borderRadius: BorderRadius.circular(15),
-                      border: isSelected
-                          ? Border.all(
-                              color: const Color(0xFF5A3E8D),
-                              width: 2,
-                            )
-                          : null,
-                    ),
-                    child: Center(
-                      child: Text(
-                        categoryList[index],
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: isSelected
-                              ? const Color(0xFF5A3E8D)
-                              : Colors.black87,
-                          fontWeight:
-                              isSelected ? FontWeight.bold : FontWeight.normal,
-                          fontSize: 16,
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 10), // Slightly reduced horizontal margins
+              width: 102, // Increased width by 2px to resolve overflow
+              child: Card(
+                margin: const EdgeInsets.all(0), // Ensure no extra margin from Card
+                elevation: isSelected ? 4 : 0,
+                shadowColor: color.withOpacity(0.5),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  side: BorderSide(
+                    color: isSelected ? color : color.withOpacity(0.3),
+                    width: isSelected ? 2 : 1,
+                  ),
+                ),
+                color: isSelected ? color.withOpacity(0.2) : color.withOpacity(0.08),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 8), // Fine-tuned padding
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 20,
+                        backgroundColor: color.withOpacity(0.2),
+                        child: Icon(
+                          categoryIcons[index],
+                          color: color,
+                          size: isSelected ? 22 : 20,
                         ),
                       ),
-                    ),
-                  )
-                ],
+                      const SizedBox(height: 8),
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          categoryList[index],
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: color,
+                            fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
+                          ),
+                          maxLines: 1,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           );
