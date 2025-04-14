@@ -320,14 +320,8 @@ class _ProductDetailsState extends State<ProductDetails> with SingleTickerProvid
                                         width: 130,
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(20),
-                                          // Updated gradient colors for Add to Cart to match theme
-                                          gradient: const LinearGradient(
-                                            colors: [
-                                             Color.fromARGB(255, 1, 8, 141), 
-                                            ],
-                                            begin: Alignment.topLeft,
-                                            end: Alignment.bottomRight,
-                                          ),
+                                          // Updated to solid dark blue color
+                                          color: const Color(0xFF0D47A1), // Dark blue color
                                         ),
                                         child: ElevatedButton(
                                           onPressed: addToCart,
@@ -371,7 +365,7 @@ class _ProductDetailsState extends State<ProductDetails> with SingleTickerProvid
               return Positioned(
                 top: 0,
                 bottom: 0,
-                right: _drawerController.value * 0 + (1 - _drawerController.value) * (-MediaQuery.of(context).size.width * 0.8),
+                right: _drawerController.value * 0 - (1 - _drawerController.value) * (MediaQuery.of(context).size.width * 0.8),
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: Container(
                   decoration: BoxDecoration(
@@ -627,7 +621,7 @@ class _ProductDetailsState extends State<ProductDetails> with SingleTickerProvid
               child: GestureDetector(
                 onTap: _toggleCart,
                 child: Container(
-                  color: Colors.black,
+                  color: Colors.black.withOpacity(0.5),
                 ),
               ),
             ),
