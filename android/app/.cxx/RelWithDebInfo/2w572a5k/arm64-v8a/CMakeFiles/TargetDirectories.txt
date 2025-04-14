@@ -1,0 +1,2 @@
+C:/Users/User/petsrology/android/app/.cxx/RelWithDebInfo/2w572a5k/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/User/petsrology/android/app/.cxx/RelWithDebInfo/2w572a5k/arm64-v8a/CMakeFiles/rebuild_cache.dir

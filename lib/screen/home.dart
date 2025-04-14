@@ -80,7 +80,7 @@ class HomePage extends StatelessWidget {
                     icon: 'assets/images/home_logo4.png',
                     label: 'Pet Care Tips',
                     backgroundColor: const Color(0xFFAFE1AF), // Light green
-                    onTap: () => Navigator.pushNamed(context, '/essentials'),
+                    onTap: () => Navigator.pushNamed(context, '/petcare'),
                   ),
                 ],
               ),
