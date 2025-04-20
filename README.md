@@ -1,5 +1,13 @@
 # petsrology
 
+# Demo Video
+https://drive.google.com/file/d/1jqnSZt79NjHQslP8qmdwnun_i3OMb7mN/view?usp=sharing
+
+# Report link
+https://drive.google.com/file/d/1DtXnQwAew3PK2cZYl_W-JRMQarW-fW3l/view?usp=sharing
+
+# Release
+https://drive.google.com/drive/folders/1ZMClhRNXFfp-eBy9tU8YZAzcKRwUC-iI
 
 # Preview shots
 ![image](https://github.com/user-attachments/assets/95907e85-6fd4-465a-9823-ca9558f864c9)
@@ -19,13 +27,6 @@
 
 
 
-# Demo Video
 
-
-# Report link
-https://drive.google.com/file/d/1rNb4ANmwnno-YBLzvGhDtpfVUTkurEHg/view?usp=drivesdk
-
-# Release
-https://drive.google.com/drive/folders/1ZMClhRNXFfp-eBy9tU8YZAzcKRwUC-iI
 
 
