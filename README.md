@@ -1,4 +1,5 @@
 # petsrology
+Petsrology is a online platform for all kind of pet needs. It has the feature like adopting a pet, Pet essentials, pet care tips. It also provide veterian support for any pets. Our aim to provide a wonderful platfrom for all pets need.
 
 # Demo Video
 https://drive.google.com/file/d/1jqnSZt79NjHQslP8qmdwnun_i3OMb7mN/view?usp=sharing
